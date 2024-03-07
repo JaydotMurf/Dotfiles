@@ -35,3 +35,32 @@ alias tcn='mv --force -t ~/.local/share/Trash'
 
 # Return to the Git project’s top level
 alias cg='cd `git rev-parse --show-toplevel`'
+
+# Basic Aliases
+alias g='git'
+alias ga='git add'
+alias gc='git commit -m'
+alias gs='git status'
+alias gb='git branch'
+alias gcheckout='git checkout'
+alias gm='git merge'
+alias gpull='git pull'
+alias gpush='git push'
+
+# Log and Show Aliases
+alias gl='git log --oneline --graph --decorate --all'
+alias gd='git diff'
+alias gg='git grep'
+
+# Stash Aliases
+alias gstash='git stash'
+
+# Remote Aliases
+alias gremote='git remote'
+
+# Interactive Rebase Aliases
+alias grebase='git rebase'
+
+# Git Configuration Aliases
+alias gconfig-name='git config --global user.name "Your Name"'
+alias gconfig-email='git config --global user.email "your.email@example.com"'
