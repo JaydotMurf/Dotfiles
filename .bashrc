@@ -33,6 +33,11 @@ if [ -f $HOME/.bash_functions ]; then
     source $HOME/.bash_functions
 fi
 
+# Load custom bash aliases
+if [ -f $HOME/.bash_aliases ]; then
+    source $HOME/.bash_aliases
+fi
+
 # Enable ls color support
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
