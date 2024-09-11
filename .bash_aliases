@@ -64,3 +64,6 @@ alias grebase='git rebase'
 # Git Configuration Aliases
 alias gconfig-name='git config --global user.name "Your Name"'
 alias gconfig-email='git config --global user.email "your.email@example.com"'
+
+# Cheat Shseet
+alias cct='function _cct() { curl cheat.sh/$1; }; _cct'
