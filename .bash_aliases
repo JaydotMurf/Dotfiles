@@ -1,24 +1,23 @@
 # -------------------------
 # Aliases for 'ls' commands
 # -------------------------
-# List in long format
-alias ll='ls -l'
+# lists only directories (no files)
+ld='eza -lD'
 
-# List all files including hidden ones
-alias la='ls -A'
+# lists only files (no directories)
+lf='eza -lF --color=always | grep -v /'
 
-# List with columns and classify entries by type
-alias l='ls -CF'
+# lists only hidden files (no directories)
+lh='eza -dl .* --group-directories-first'
 
-# List sorted by last modified time, with hidden files first
-alias le='ls -ltra'
+# lists everything with directories first
+ll='eza -al --group-directories-first'
 
-# Sort files by size in human-readable format, with suffixes like KB/MB
-alias lt='ls --human-readable --size -1 -S --classify'
+# lists only files sorted by size
+ls='eza -alF --color=always --sort=size | grep -v /'
 
-# Sort files by modification time, oldest last
-alias left='ls -t -1'
-
+# lists everything sorted by time updated
+lt='eza -al --sort=modified'
 
 # -----------------------------------
 # Aliases for system and file commands
@@ -51,7 +50,7 @@ alias ga='git add'           # Stage changes for commit
 alias gc='git commit -m'     # Commit changes with a message
 alias gs='git status'        # Check the current status of the repo
 alias gb='git branch'        # List branches
-alias gcheckout='git checkout' # Switch branches
+alias gcheckout='   git checkout' # Switch branches
 alias gm='git merge'         # Merge branches
 alias gpull='git pull'       # Pull updates from the remote repo
 alias gpush='git push'       # Push commits to the remote repo
