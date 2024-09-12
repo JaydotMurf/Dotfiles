@@ -1,33 +1,22 @@
-<<<<<<< Updated upstream
 # -------------------------
 # Aliases for 'ls' commands
 # -------------------------
-# lists only directories (no files)
-ld='eza -lD'
-=======
-# some more ls aliases
 alias ls='eza'
+
+# Long list all files with header row
 alias ll='eza -alh'
+
+# Long list all files with Git status
+alias lgs='eza -alh --git'
+
+# Recursively list directories as tree
 alias tree='eza --tree'
+
+# lists everything sorted by time updated
+alias lt='eza -al --sort=modified'
 
 # A cat(1) clone with syntax highlighting and Git integration
 alias cat='bat'
->>>>>>> Stashed changes
-
-# lists only files (no directories)
-lf='eza -lF --color=always | grep -v /'
-
-# lists only hidden files (no directories)
-lh='eza -dl .* --group-directories-first'
-
-# lists everything with directories first
-ll='eza -al --group-directories-first'
-
-# lists only files sorted by size
-ls='eza -alF --color=always --sort=size | grep -v /'
-
-# lists everything sorted by time updated
-lt='eza -al --sort=modified'
 
 # -----------------------------------
 # Aliases for system and file commands
@@ -80,7 +69,6 @@ alias gremote='git remote'                            # Manage git remotes (add/
 alias grebase='git rebase'                            # Interactive rebase
 
 # Git Configuration Aliases
-<<<<<<< Updated upstream
 alias gconfig-name='git config --global user.name "Your Name"'   # Set global git username
 alias gconfig-email='git config --global user.email "your.email@example.com"' # Set global git email
 
@@ -105,10 +93,8 @@ alias va='source ./venv/bin/activate'
 alias gh='history|grep'
 
 # Use Cheat.sh to quickly reference cheat sheets for commands
-=======
 alias gconfig-name='git config --global user.name "Your Name"'
 alias gconfig-email='git config --global user.email "your.email@example.com"'
 
 # Curl Cheat Sheet
->>>>>>> Stashed changes
 alias cct='function _cct() { curl cheat.sh/$1; }; _cct'
