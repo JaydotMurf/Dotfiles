@@ -1,59 +1,66 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-# If not running interactively, don't do anything
+# If not running interactively, exit early
 case $- in
     *i*) ;;
     *) return ;;
 esac
 
-# Essential history settings
-HISTCONTROL=ignoreboth
-shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=2000
+# ----------------------------
+# History settings for Bash
+# ----------------------------
+# Control history file and command behavior:
+HISTCONTROL=ignoreboth       # Don't store duplicate commands or those starting with a space
+HISTSIZE=1000                # Number of commands to store in history
+HISTFILESIZE=2000            # Number of lines stored in the history file
+shopt -s histappend          # Append to history, don't overwrite it
 
-# Check the window size after each command and update LINES and COLUMNS.
+# Check the window size after each command
 shopt -s checkwinsize
 
-# If set, "**" will match all files and directories recursively.
-# shopt -s globstar
-
-# Detect if we are using a color-capable terminal
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+# ----------------------------
+# Bash prompt and terminal settings
+# ----------------------------
+# Detect if terminal supports color
+if [ -x /usr/bin/tput ] && tput setaf 1 &>/dev/null; then
     color_prompt=yes
 fi
 
-# Custom Bash Prompt
-if [ -f ~/.bash_prompt ]; then
-    source ~/.bash_prompt
-fi
+# ----------------------------
+# Function for sourcing config files (aliases, functions, etc.)
+# ----------------------------
+source_if_exists() {
+    if [ -r "$1" ]; then
+	source "$1"
+    else
+	echo "Warning: $1 not found or not readable"
+    fi
+}
 
-# Load custom bash functions
-if [ -f $HOME/.bash_functions ]; then
-    source $HOME/.bash_functions
-fi
+# Load custom bash functions, aliases, and others
+source_if_exists "$HOME/.bash_prompts"
+source_if_exists "$HOME/.bash_functions"
+source_if_exists "$HOME/.bash_aliases"
 
-# Load custom bash aliases
-if [ -f $HOME/.bash_aliases ]; then
-    source $HOME/.bash_aliases
-fi
-
+# ----------------------------
 # Enable ls color support
+# ----------------------------
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    eval "$(dircolors -b ${HOME}/.dircolors 2>/dev/null || dircolors -b)"
     alias ls='ls --color=auto'
 fi
 
-# Load bash completion if not already enabled
+# ----------------------------
+# Load bash completion (if available)
+# ----------------------------
 if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
+    source_if_exists /usr/share/bash-completion/bash_completion
+    source_if_exists /etc/bash_completion
 fi
 
-# set variable identifying the chroot you work in (used in the prompt below)
+# ----------------------------
+# Chroot settings (for prompts)
+# ----------------------------
+# Set variable to identify chroot (used in the prompt)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+    debian_chroot=$(cat /etc/debian_ch
