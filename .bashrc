@@ -38,7 +38,7 @@ source_if_exists() {
 }
 
 # Load custom bash functions, aliases, and others
-source_if_exists "$HOME/.bash_prompts"
+source_if_exists "$HOME/.bash_prompt"
 source_if_exists "$HOME/.bash_functions"
 source_if_exists "$HOME/.bash_aliases"
 
@@ -63,4 +63,5 @@ fi
 # ----------------------------
 # Set variable to identify chroot (used in the prompt)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_ch
+	debian_chroot=$(cat /etc/debian_ch)
+fi
