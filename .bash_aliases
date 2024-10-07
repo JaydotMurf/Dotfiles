@@ -98,3 +98,10 @@ alias gconfig-email='git config --global user.email "your.email@example.com"'
 
 # Curl Cheat Sheet
 alias cct='function _cct() { curl cheat.sh/$1; }; _cct'
+
+# --------------------------------
+# Aliases for navigating file system
+# --------------------------------
+# Navigate to most frequently used directories
+alias dot='cd /home/jerraill/2.Areas/Technology/DevOps/Dotfiles'
+alias bad='cd /home/jerraill/2.Areas/Technology/DevOps/Dotfiles'
