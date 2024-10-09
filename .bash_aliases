@@ -22,16 +22,16 @@ alias cat='bat'
 # Aliases for system and file commands
 # -----------------------------------
 # Update the package list from repositories
-alias update='sudo apt update -y'
+alias update='sudo apt-get update -y'
 
 # Upgrade all installed packages
-alias upgrade='sudo apt upgrade -y'
+alias upgrade='sudo apt-get upgrade -y'
 
 # Count the number of files in the current directory and subdirectories
 alias count='find . -type f | wc -l'
 
-# View currently mounted drives and their mount points, filtered by /dev/
-alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
+# Show currently mounted drives and their mount points, filtered by /dev/
+alias shmnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 
 # Move files to trash instead of permanent deletion (safer file removal)
 alias tcn='mv --force -t ~/.local/share/Trash'
@@ -90,18 +90,14 @@ alias va='source ./venv/bin/activate'
 # Other utility aliases
 # --------------------------------
 # Search for a command in history using a keyword
-alias gh='history|grep'
+alias gh='history|rg'
 
 # Use Cheat.sh to quickly reference cheat sheets for commands
-alias gconfig-name='git config --global user.name "Your Name"'
-alias gconfig-email='git config --global user.email "your.email@example.com"'
-
-# Curl Cheat Sheet
 alias cct='function _cct() { curl cheat.sh/$1; }; _cct'
 
 # --------------------------------
 # Aliases for navigating file system
 # --------------------------------
 # Navigate to most frequently used directories
-alias dot='cd /home/jerraill/2.Areas/Technology/DevOps/Dotfiles'
-alias bad='cd /home/jerraill/2.Areas/Technology/DevOps/Dotfiles'
+alias dot='cd /home/$USER/2.Areas/Technology/DevOps/Dotfiles'
+alias bad='cd /home/$USER/2.Areas/Technology/DevOps/Dotfiles'
