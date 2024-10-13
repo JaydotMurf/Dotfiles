@@ -65,3 +65,9 @@ fi
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_ch)
 fi
+
+# ----------------------------
+# Set up fzf key bindings and fuzzy completion
+# ----------------------------
+
+eval "$(fzf --bash)"
