@@ -49,7 +49,7 @@ alias ga='git add'           # Stage changes for commit
 alias gc='git commit -m'     # Commit changes with a message
 alias gs='git status'        # Check the current status of the repo
 alias gb='git branch'        # List branches
-alias gcheckout='   git checkout' # Switch branches
+alias gcheckout='git checkout' # Switch branches
 alias gm='git merge'         # Merge branches
 alias gpull='git pull'       # Pull updates from the remote repo
 alias gpush='git push'       # Push commits to the remote repo
@@ -100,7 +100,7 @@ alias cct='function _cct() { curl cheat.sh/$1; }; _cct'
 # --------------------------------
 # Navigate to most frequently used directories
 alias dot='cd /home/$USER/2.Areas/Technology/DevOps/Dotfiles'
-alias bad='cd /home/$USER/2.Areas/Technology/DevOps/Dotfiles'
+alias bad='cd /home/$USER/2.Areas/Technology/DevOps/BookwormAnsibleDesktop'
 
 # --------------------------------
 # Aliases for command-line fuzzy finder
